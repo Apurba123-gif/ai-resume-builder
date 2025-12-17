@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Resume.ai — AI Resume Builder</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav" id="main-header">
+    <div class="nav-container">
+      <div class="brand">Your Resume.ai</div>
+      <nav class="menu" aria-label="Main navigation">
+        <a href="#home" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="#features" class="nav-link" data-i18n="nav.features">Features</a>
+        <a href="#templates" class="nav-link" data-i18n="nav.templates">Templates</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#" id="login-link" class="nav-link" data-i18n="nav.login">Login</a>
+        <button id="signup-btn" class="btn-primary" data-i18n="nav.signup">Sign Up</button>
+        <div class="lang-select">
+          <select id="language" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-left">
+      <h1 data-i18n="hero.title">Create Your Perfect Resume in Minutes with AI</h1>
+      <p class="sub" data-i18n="hero.subtitle">Generate professional, beautifully formatted resumes instantly — powered by Artificial Intelligence.</p>
+      <p class="tag">Made in India 🇮🇳 — Powered by AI designer for your career growth 📈</p>
+      <div class="cta-row">
+        <button id="build-btn" class="btn-primary large" data-i18n="cta.build">Build My Resume</button>
+        <a class="btn-outline" href="#templates" data-i18n="cta.templates">Choose Template</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="preview-card"><img src="assets/demo-resume.png" alt="resume preview"></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <h2 data-i18n="features.title">Why Choose Our AI Resume Builder?</h2>
+    <p class="lead" data-i18n="features.lead">Our site gives you fast, accurate & beautifully formatted resumes in a few clicks.</p>
+    <div class="feature-grid">
+      <div class="card"><div class="icon">🤖</div><h3 data-i18n="feature.ai">AI Resume Generation</h3><p data-i18n="feature.ai.desc">AI generates professional content from your input.</p></div>
+      <div class="card"><div class="icon">🧩</div><h3 data-i18n="feature.templates">Multiple Templates</h3><p data-i18n="feature.templates.desc">Choose from modern templates (2 free, 8 premium).</p></div>
+      <div class="card"><div class="icon">🧠</div><h3 data-i18n="feature.suggestions">Smart Suggestions</h3><p data-i18n="feature.suggestions.desc">AI gives improvement suggestions.</p></div>
+      <div class="card"><div class="icon">📄</div><h3 data-i18n="feature.download">One-Click Download</h3><p data-i18n="feature.download.desc">Download PDF (English only).</p></div>
+    </div>
+  </section>
+
+  <!-- TEMPLATES -->
+  <section id="templates" class="templates">
+    <h2 data-i18n="templates.title">Choose Your Favorite Resume Template</h2>
+    <p class="lead" data-i18n="templates.lead">10 templates — 2 free, 8 premium (login to unlock).</p>
+    <div class="template-grid" id="template-grid"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2 data-i18n="about.title">Our Project Idea & Analysis</h2>
+    <p data-i18n="about.desc">This AI Resume Builder aims to simplify resume creation for students and job seekers.</p>
+    <div class="team">
+      <div class="dev-card">
+        <div class="dev-bg dev-bg-1"></div>
+        <img src="assets/apurba.jpg" alt="Apurba">
+        <h3>Apurba Sikdar</h3>
+        <p class="small">Lead Developer & Designer</p>
+        <p class="small email">apurbasikdar699@gmail.com</p>
+      </div>
+      <div class="dev-card">
+        <div class="dev-bg dev-bg-2"></div>
+        <img src="assets/rythm.jpg" alt="Rhythm">
+        <h3>Rhythm Bar</h3>
+        <p class="small">Project Concept & Analysis</p>
+        <p class="small email">rythm2019@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP COUNT -->
+<section class="signup-count">
+  <h3>🎉 Total Users Joined</h3>
+  <p><span id="signup-count">0</span>+ users already created resumes</p>
+</section>
+
+<!-- FEEDBACK SECTION -->
+<section class="feedback">
+  <h2>💬 User Feedback</h2>
+
+  <textarea id="feedback-text" placeholder="Write your feedback..."></textarea>
+
+  <div class="feedback-row">
+    <input type="number" id="rating" min="1" max="5" placeholder="⭐ 1-5">
+    <button id="send-feedback">Submit</button>
+  </div>
+
+  <div id="reviews-list" class="reviews"></div>
+</section>
+
+
+  <!-- CHATBOT WIDGET -->
+  <div id="chat-widget" class="chat-widget">
+    <button id="chat-toggle" class="chat-toggle" aria-label="Open chat">💬</button>
+    <div id="chat-panel" class="chat-panel hidden" role="dialog" aria-label="AI helper">
+      <div class="chat-header">AI Helper</div>
+      <div id="chat-log" class="chat-log"></div>
+      <div class="chat-input-row">
+        <input id="chat-input" placeholder="Ask about the site, templates, or how to use..." />
+        <button id="chat-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-col">
+      <h3 class="footer-logo">
+        Your Resume<span class="ai-text">.ai</span>
+      </h3>
+      <p class="footer-about">
+        AI-powered resume builder helping students & job seekers create
+        professional resumes in minutes.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#templates">Templates</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📧 support@airesumebuilder.com</p>
+      <p>🌐 www.airesumebuilder.com</p>
+      <p>📍 Kolkata, India</p>
+    </div>
+
+  </div>
+
+  <!-- Bottom Line -->
+  <div class="footer-bottom">
+    <p>
+      Designed & Developed by 
+      <span class="dev-name">Apurba Sikdar</span>
+      © 2025 | Powered by AI Resume Builder
+    </p>
+  </div>
+</footer>
+
+
+  <!-- MODALS -->
+  <!-- Build Resume Modal -->
+  <div id="resume-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <button class="close" id="modal-close" aria-label="Close">✕</button>
+      <h2 id="modal-title">Build Your Resume</h2>
+
+      <form id="resume-form" class="form-grid">
+        <!-- Photo -->
+        <div class="form-row full">
+          <label data-i18n="form.photo">Passport size photo <span class="bn">(ছবি)</span></label>
+          <input id="photo" name="photo" type="file" accept="image/*" />
+          <div id="photo-preview" class="photo-preview"></div>
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="form.fullname">Full name <span class="bn">(পূর্ণ নাম)</span></label>
+          <input id="fullName" name="fullName" type="text" required />
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="form.email">Email <span class="bn">(ইমেইল)</span></label>
+          <input id="email" name="email" type="email" required />
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="form.phone">Phone <span class="bn">(ফোন)</span></label>
+          <input id="phone" name="phone" type="tel" />
+        </div>
+
+        <div class="form-row full">
+          <label data-i18n="form.address">Address <span class="bn">(ঠিকানা)</span></label>
+          <input id="address" name="address" type="text" />
+        </div>
+
+        <div class="form-row full">
+          <label data-i18n="form.education">Education (highest) <span class="bn">(সর্বোচ্চ শিক্ষা)</span></label>
+          <input id="education" name="education" placeholder="e.g. B.Sc. in CSE, 2023, University Name" />
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="form.languages">Languages <span class="bn">(ভাষা)</span></label>
+          <input id="languages" name="languages" placeholder="e.g. Bengali, English, Hindi" />
+        </div>
+
+        <div class="form-row full">
+          <label data-i18n="form.profile">Profile Summary <span class="bn">(প্রোফাইল)</span></label>
+          <textarea id="profile" name="profile" placeholder="Short professional summary"></textarea>
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="form.skills">Skills <span class="bn">(দক্ষতা)</span></label>
+          <textarea id="skills" name="skills" placeholder="Comma separated"></textarea>
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="form.experience">Work Experience <span class="bn">(কর্মজীবন)</span></label>
+          <textarea id="experience" name="experience"></textarea>
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="form.references">References <span class="bn">(রেফারেন্স)</span></label>
+          <textarea id="references" name="references"></textarea>
+        </div>
+
+        <div class="form-row full">
+          <label>Auto-translate to English</label>
+          <input id="auto-translate" type="checkbox" checked /> <small>When generating resume, inputs will be converted to English (prototype)</small>
+        </div>
+
+        <div class="form-row captcha-row">
+          <label data-i18n="form.captcha">Captcha</label>
+          <input id="captcha" name="captcha" placeholder="Type 12AB" />
+        </div>
+
+        <div class="form-actions full">
+          <button type="button" id="preview-btn" class="btn-outline">Preview</button>
+          <button type="submit" class="btn-primary">Generate Resume (PDF)</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close" id="login-close">✕</button>
+      <h2>Login</h2>
+      <form id="login-form" class="form-grid">
+        <div class="form-row">
+          <label>Email</label>
+          <input id="login-email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label>Password</label>
+          <input id="login-password" type="password" required />
+        </div>
+        <div class="form-actions">
+          <button type="button" id="forgot-password" class="btn-outline">Forgot password?</button>
+          <button type="submit" class="btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signup-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close" id="signup-close">✕</button>
+      <h2>Sign Up</h2>
+      <form id="signup-form" class="form-grid">
+        <div class="form-row">
+          <label>Full name</label>
+          <input id="su-name" type="text" required />
+        </div>
+        <div class="form-row">
+          <label>Email</label>
+          <input id="su-email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label>Phone</label>
+          <input id="su-phone" type="tel" />
+        </div>
+        <div class="form-row">
+          <label>Password</label>
+          <input id="su-pass" type="password" required />
+        </div>
+        <div class="form-row">
+          <label>Re-enter Password</label>
+          <input id="su-pass2" type="password" required />
+        </div>
+        <div class="form-row captcha-row">
+          <label>Captcha</label>
+          <input id="su-captcha" placeholder="Type 9XY" />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Create Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
