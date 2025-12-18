@@ -333,16 +333,13 @@
   </div>
 
   <script src="js/main.js"></script>
-</body>
-
-</html>
 
 
-
-<script>
+ <script>
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById("menuToggle");
   const menu = document.getElementById("navMenu");
+  const logout = document.getElementById("logoutBtn");
 
   toggle.addEventListener("click", function () {
     menu.classList.toggle("active");
@@ -351,8 +348,29 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     menu.classList.remove("active");
   });
+
+  logout.addEventListener("click", function (e) {
+    e.preventDefault();
+    alert("Logged out successfully");
+
+    // future backend
+    // localStorage.clear();
+    // window.location.href = "login.html";
+  });
 });
 </script>
+</body>
+</html>
+
+
+  
+</body>
+
+</html>
+
+
+
+
 
 
 
