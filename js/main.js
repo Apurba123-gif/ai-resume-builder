@@ -438,3 +438,18 @@ renderReviews();
 
 renderSignupCount();
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("navMenu");
+
+  toggle.addEventListener("click", function () {
+    menu.classList.toggle("active");
+  });
+
+  window.addEventListener("scroll", function () {
+    menu.classList.remove("active");
+  });
+});
+</script>
