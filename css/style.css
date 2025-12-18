@@ -409,3 +409,41 @@ html,body{min-height:100%;background:linear-gradient(180deg,var(--bg),#ffffff);l
 }
 
 
+/* ===== MOBILE NAVBAR ===== */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 999;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a,
+  .menu button,
+  .lang-select {
+    margin: 12px auto;
+  }
+}
+
+
