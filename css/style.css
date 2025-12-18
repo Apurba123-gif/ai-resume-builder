@@ -397,6 +397,58 @@ html,body{min-height:100%;background:linear-gradient(180deg,var(--bg),#ffffff);l
   }
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.signup-btn {
+  background-color: #7c4dff;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 25px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    display: none;           
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav.active {
+    display: flex;           
+  }
+
+  .menu-toggle {
+    display: block;          
+  }
+}
+
+
 /* ========== EXTRA SMALL PHONES ========== */
 @media (max-width: 480px) {
   .hero-left h1 {
@@ -406,3 +458,4 @@ html,body{min-height:100%;background:linear-gradient(180deg,var(--bg),#ffffff);l
     font-size: 15px;
   }
 }
+
