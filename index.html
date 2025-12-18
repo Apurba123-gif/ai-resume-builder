@@ -11,35 +11,35 @@
 <body>
  
   <!-- NAV -->
+<body>
+
+<!-- এখানেই বসাবে -->
 <header class="nav" id="main-header">
   <div class="nav-container">
 
     <div class="brand">Your Resume.ai</div>
 
-    <!-- MENU ICON -->
+    <!-- Login + Signup (Desktop) -->
+    <div class="auth-buttons">
+      <a href="#login" id="loginBtn" class="nav-link">Login</a>
+      <button id="signupBtn" class="btn-primary">Sign Up</button>
+    </div>
+
+    <!-- ☰ Menu Icon (Mobile) -->
     <div class="menu-toggle" id="menuToggle">☰</div>
 
-    <!-- MENU -->
+    <!-- Mobile Menu -->
     <nav class="menu" id="navMenu">
       <a href="#home">Home</a>
       <a href="#features">Features</a>
       <a href="#templates">Templates</a>
       <a href="#about">About</a>
-      <a href="#login">Login</a>
-
-      <button class="btn-primary">Sign Up</button>
-
-      <div class="lang-select">
-        <select>
-          <option>English</option>
-          <option>বাংলা</option>
-          <option>हिंदी</option>
-        </select>
-      </div>
+      <a href="#" id="logoutBtn" class="logout">Logout</a>
     </nav>
 
   </div>
 </header>
+
 
 
   <!-- HERO -->
@@ -353,5 +353,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
 
 
