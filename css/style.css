@@ -289,95 +289,100 @@ html,body{min-height:100%;background:linear-gradient(180deg,var(--bg),#ffffff);l
 
 /* In-app printing controls are hidden via @media print in preview window. */
 
-/* =========================
-   MOBILE RESPONSIVE FIX
-   ========================= */
+/* ========== RESPONSIVE GLOBAL ========== */
 @media (max-width: 768px) {
 
-  /* NAVBAR */
+  /* NAVIGATION */
   .nav-container {
     flex-direction: column;
     align-items: flex-start;
+    padding: 10px;
   }
 
   .menu {
+    display: flex;
     flex-direction: column;
     width: 100%;
     gap: 12px;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
-  .menu .btn-primary {
+  .nav-link {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  #signup-btn {
     width: 100%;
-    text-align: center;
   }
 
   /* HERO SECTION */
   .hero {
     flex-direction: column;
-    padding: 30px 16px;
     text-align: center;
+    padding: 20px 12px;
   }
 
-  .hero-left,
-  .hero-right {
-    width: 100%;
-  }
-
-  .hero h1 {
-    font-size: 26px;
+  .hero-left h1 {
+    font-size: 28px;
     line-height: 1.3;
   }
 
-  .cta-row {
+  .hero .cta-row {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
-  .cta-row button,
-  .cta-row a {
+  .hero .btn-primary,
+  .hero .btn-outline {
     width: 100%;
+    font-size: 16px;
   }
 
-  .preview-card img {
+  .hero-right {
+    margin-top: 20px;
+  }
+  .hero-right img {
     width: 100%;
     height: auto;
   }
 
-  /* FEATURES */
+  /* FEATURE GRID */
   .feature-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    padding: 0 12px;
   }
 
-  /* TEMPLATES */
+  /* TEMPLATE GRID */
   .template-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+    padding: 0 12px;
   }
 
-  /* TEAM / ABOUT */
+  /* ABOUT TEAM */
   .team {
     flex-direction: column;
     gap: 20px;
   }
-
   .dev-card {
     width: 100%;
   }
 
   /* SIGNUP COUNT */
   .signup-count {
-    padding: 20px;
-    text-align: center;
+    padding: 18px 12px;
   }
 
-@media (max-width: 768px) {
-
-  
   /* FEEDBACK */
+  .feedback {
+    padding: 18px 12px;
+  }
   .feedback textarea {
     width: 100%;
+    font-size: 16px;
   }
-
   .feedback-row {
     flex-direction: column;
     gap: 10px;
@@ -387,17 +392,17 @@ html,body{min-height:100%;background:linear-gradient(180deg,var(--bg),#ffffff);l
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-
-  /* MODAL */
-  .modal-content {
-    width: 95%;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px 12px;
   }
 }
 
+/* ========== EXTRA SMALL PHONES ========== */
+@media (max-width: 480px) {
+  .hero-left h1 {
+    font-size: 24px;
+  }
+  .nav-link {
+    font-size: 15px;
+  }
+}
