@@ -11,14 +11,6 @@
 const $ = (sel, ctx=document) => ctx.querySelector(sel);
 const $$ = (sel, ctx=document) => Array.from((ctx||document).querySelectorAll(sel));
 
-
-const menu = document.getElementById('mobile-menu');
-const nav = document.getElementById('nav-menu');
-
-menu.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
-
 /* ---------------- i18n resources ---------------- */
 const resources = {
   en: {
@@ -445,3 +437,4 @@ renderSignupState();
 renderReviews();
 
 renderSignupCount();
+
