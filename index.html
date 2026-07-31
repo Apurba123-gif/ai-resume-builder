@@ -3,1277 +3,1451 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Your Resume.ai | AI Resume Builder</title>
+    <title>Your Resume AI | Build Professional Resume</title>
 
-<meta name="description"
-content="Create ATS Friendly Professional Resume using Artificial Intelligence.">
+    <meta name="description"
+        content="Create ATS Friendly Professional Resume using AI in Minutes.">
 
-<meta name="keywords"
-content="AI Resume Builder, Resume Maker, CV Builder, ATS Resume">
+    <meta name="keywords"
+        content="Resume Builder, AI Resume, ATS Resume, CV Maker">
 
-<meta name="author"
-content="Apurba Sikdar">
+    <meta name="author"
+        content="Your Resume AI">
 
-<meta name="theme-color"
-content="#2563eb">
+    <meta name="theme-color"
+        content="#050816">
 
-<meta property="og:title"
-content="Your Resume.ai">
+    <!-- Open Graph -->
 
-<meta property="og:description"
-content="Professional AI Resume Builder">
+    <meta property="og:title"
+        content="Your Resume AI">
 
-<meta property="og:type"
-content="website">
+    <meta property="og:description"
+        content="Build Modern Resume with AI">
 
-<meta property="og:image"
-content="assets/logo.png">
+    <meta property="og:type"
+        content="website">
 
-<meta property="og:url"
-content="https://yourresume.ai">
+    <!-- Google Font -->
 
-<link rel="icon"
-href="assets/favicon.png">
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+    <!-- Font Awesome -->
 
-<link rel="stylesheet"
-href="css/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
 
 </head>
 
-<body class="animated-bg">
+<body>
 
-<!-- Loader -->
+    <!-- ==========================
+            LOADER
+    =========================== -->
 
-<div id="loader">
+    <div id="loader">
 
-<div class="loader-box">
+        <div class="loader-box">
 
-<div class="loader-circle"></div>
+            <div class="loader-circle"></div>
 
-<h2>Your Resume.ai</h2>
+            <h2>Your Resume AI</h2>
 
-<p>Loading...</p>
+        </div>
 
-</div>
+    </div>
 
-</div>
+    <!-- ==========================
+        DYNAMIC BACKGROUND
+    =========================== -->
 
-<!-- Dynamic Background -->
+    <div class="bg-animation">
 
-<div class="background-animation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+    </div>
 
-</div>
+    <!-- Scroll Progress -->
 
-<!-- Scroll Progress -->
+    <div id="progress-bar"></div>
 
-<div id="progress-bar"></div>
+    <!-- Back To Top -->
 
-<!-- Back To Top -->
+    <button id="backToTop">
 
-<button id="backToTop">
+        <i class="fas fa-arrow-up"></i>
 
-↑
+    </button>
 
-</button>
+    <!-- ==========================
+            NAVBAR
+    =========================== -->
 
-<!-- ========================= -->
+    <header id="header">
 
-<!-- NAVBAR START -->
+        <nav class="navbar">
 
-<!-- ========================= -->
+            <a href="#"
+                class="logo">
 
-<header class="nav" id="main-header">
+                <i class="fa-solid fa-file-lines"></i>
 
-<div class="nav-container">
+                <span>Your Resume AI</span>
 
-<div class="brand">
+            </a>
 
-<a href="#home">
+            <ul id="navMenu">
 
-Your Resume<span>.ai</span>
+                <li><a href="#">Home</a></li>
 
-</a>
+                <li><a href="#features">Features</a></li>
 
-</div>
+                <li><a href="#templates">Templates</a></li>
 
-<button
-class="menu-toggle"
-id="menu-toggle"
-aria-label="Toggle Menu">
+                <li><a href="#resume-builder">Builder</a></li>
 
-☰
+                <li><a href="#contact">Contact</a></li>
 
-</button>
+            </ul>
 
-<nav
-class="menu"
-id="menu">
+            <div class="nav-right">
 
-<a
-href="#home"
-class="nav-link"
-data-i18n="nav.home">
+                <button id="loginBtn">
 
-Home
+                    Login
 
-</a>
+                </button>
 
-<a
-href="#features"
-class="nav-link"
-data-i18n="nav.features">
+                <button id="signupBtn"
+                    class="primary-btn">
 
-Features
+                    Sign Up
 
-</a>
+                </button>
 
-<a
-href="#templates"
-class="nav-link"
-data-i18n="nav.templates">
+                <button id="menuBtn">
 
-Templates
+                    <i class="fas fa-bars"></i>
 
-</a>
+                </button>
 
-<a
-href="#about"
-class="nav-link"
-data-i18n="nav.about">
+            </div>
 
-About
+        </nav>
 
-</a>
+    </header>
 
-<a
-href="privacy.html"
-class="nav-link">
+    <!-- ==========================
+            HERO
+    =========================== -->
 
-Privacy
+    <section class="hero">
 
-</a>
+        <div class="hero-left">
 
-<a
-href="terms.html"
-class="nav-link">
+            <span class="badge">
 
-Terms
+                🚀 AI Powered Resume Builder
 
-</a>
+            </span>
 
-<a
-href="#"
-id="login-link"
-class="nav-link"
-data-i18n="nav.login">
+            <h1>
 
-Login
+                Build A
 
-</a>
+                <span>
 
-<button
-id="signup-btn"
-class="btn-primary">
+                    Professional Resume
 
-Sign Up
+                </span>
 
-</button>
+                In Minutes
 
-<div class="lang-select">
+            </h1>
 
-<select id="language">
+            <p>
 
-<option value="en">
+                Create beautiful ATS-friendly resumes with AI assistance,
+                choose premium templates and download your resume instantly.
 
-English
+            </p>
 
-</option>
+            <div class="hero-buttons">
 
-<option value="bn">
+                <button
+                    id="startResume"
+                    class="primary-btn">
 
-বাংলা
+                    Build Resume
 
-</option>
+                </button>
 
-<option value="hi">
+                <button
+                    class="secondary-btn">
 
-हिन्दी
+                    View Templates
 
-</option>
+                </button>
 
-</select>
+            </div>
 
-</div>
+            <div class="hero-info">
 
-</nav>
+                <div>
 
-</div>
+                    <h2 data-count="15000">
 
-</header>
+                        0
 
-<!-- ========================= -->
+                    </h2>
 
-<!-- NAVBAR END -->
+                    <p>Users</p>
 
-<!-- ========================= -->
+                </div>
 
-  <!-- ========================= -->
-<!-- HERO SECTION START -->
-<!-- ========================= -->
+                <div>
 
-<section id="home" class="hero">
+                    <h2 data-count="12">
 
-<div class="hero-left">
+                        0
 
-<span class="hero-badge">
+                    </h2>
 
-🚀 India's Smart AI Resume Builder
+                    <p>Templates</p>
 
-</span>
+                </div>
 
-<h1 data-i18n="hero.title">
+                <div>
 
-Create Your Professional Resume
-<span class="gradient-text">
-With Artificial Intelligence
-</span>
+                    <h2 data-count="98">
 
-</h1>
+                        0
 
-<p
-class="sub"
-data-i18n="hero.subtitle">
+                    </h2>
 
-Generate ATS Friendly,
-Modern & Professional Resume
-within minutes using AI.
+                    <p>ATS Score</p>
 
-</p>
+                </div>
 
-<div class="hero-features">
+            </div>
 
-<div>
+        </div>
 
-✅ ATS Friendly
+        <div class="hero-right">
 
-</div>
+            <div class="resume-preview">
 
-<div>
+                <div class="preview-header">
 
-⚡ AI Powered
+                    <div class="avatar"></div>
 
-</div>
+                    <div>
 
-<div>
+                        <h3>Rahul Sharma</h3>
 
-📄 PDF Download
+                        <small>Software Engineer</small>
 
-</div>
+                    </div>
 
-<div>
+                </div>
 
-🌍 Multi Language
+                <div class="line"></div>
+                <div class="line short"></div>
 
-</div>
+                <div class="line"></div>
 
-</div>
+                <div class="line"></div>
 
-<div class="cta-row">
+                <div class="line short"></div>
 
-<button
-id="build-btn"
-class="btn-primary large">
+                <div class="line"></div>
 
-Build My Resume
+                <div class="line"></div>
 
-</button>
+            </div>
 
-<a
-href="#templates"
-class="btn-outline">
+        </div>
 
-Choose Template
+    </section>
 
-</a>
+    <!-- Next Part Starts -->
 
-</div>
+    <section id="features">
 
-<div class="hero-stats">
+      <!-- =========================================
+                FEATURES
+========================================== -->
 
-<div class="stat-box">
+<section class="features" id="features">
 
-<h2>
+    <div class="section-title">
 
-10+
+        <span>Why Choose Us</span>
 
-</h2>
+        <h2>Everything You Need To Build A Professional Resume</h2>
 
-<p>
+        <p>
+            Fast, Modern, ATS Friendly & AI Powered Resume Builder
+            designed for Students, Freshers and Professionals.
+        </p>
 
-Resume Templates
+    </div>
 
-</p>
+    <div class="feature-grid">
 
-</div>
+        <div class="feature-card">
 
-<div class="stat-box">
+            <div class="icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
 
-<h2>
+            <h3>AI Resume Builder</h3>
 
-5000+
+            <p>
+                Generate professional resume content with AI assistance.
+            </p>
 
-</h2>
+        </div>
 
-<p>
+        <div class="feature-card">
 
-Happy Users
+            <div class="icon">
+                <i class="fa-solid fa-file-circle-check"></i>
+            </div>
 
-</p>
+            <h3>ATS Friendly</h3>
 
-</div>
+            <p>
+                Optimized templates that pass ATS screening systems.
+            </p>
 
-<div class="stat-box">
+        </div>
 
-<h2>
+        <div class="feature-card">
 
-99%
+            <div class="icon">
+                <i class="fa-solid fa-download"></i>
+            </div>
 
-</h2>
+            <h3>PDF Download</h3>
 
-<p>
+            <p>
+                Download your resume instantly in high quality PDF.
+            </p>
 
-ATS Score
+        </div>
 
-</p>
+        <div class="feature-card">
 
-</div>
+            <div class="icon">
+                <i class="fa-solid fa-palette"></i>
+            </div>
 
-</div>
+            <h3>Beautiful Templates</h3>
 
-</div>
+            <p>
+                Modern resume templates designed by professionals.
+            </p>
 
-<div class="hero-right">
+        </div>
 
-<div class="preview-card">
+        <div class="feature-card">
 
-<img
-src="assets/demo-resume.png"
-alt="Resume Preview">
+            <div class="icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
 
-</div>
+            <h3>Fast Builder</h3>
 
-<div class="floating-card card-one">
+            <p>
+                Create a complete resume within just a few minutes.
+            </p>
 
-🤖 AI Writing
+        </div>
 
-</div>
+        <div class="feature-card">
 
-<div class="floating-card card-two">
+            <div class="icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
 
-📄 PDF Ready
+            <h3>Secure Data</h3>
 
-</div>
+            <p>
+                Your personal information is stored securely.
+            </p>
 
-<div class="floating-card card-three">
+        </div>
 
-⭐ ATS Optimized
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- HERO SECTION END -->
-<!-- ========================= -->
+<!-- =========================================
+            HOW IT WORKS
+========================================== -->
 
-<!-- ========================= -->
-<!-- TRUST SECTION -->
-<!-- ========================= -->
+<section class="how-it-works">
 
-<section class="trust-section">
+    <div class="section-title">
 
-<div class="trust-box">
+        <span>How It Works</span>
 
-<h2>
+        <h2>Create Resume In 3 Easy Steps</h2>
 
-Trusted By Students &
-Professionals Across India 🇮🇳
+    </div>
 
-</h2>
+    <div class="steps">
 
-<p>
+        <div class="step">
 
-Create Professional Resume,
-CV and BioData within minutes.
+            <div class="step-number">01</div>
 
-No Design Skills Required.
+            <h3>Create Account</h3>
 
-</p>
+            <p>
+                Sign up using your email and start building instantly.
+            </p>
 
-</div>
+        </div>
+
+        <div class="step">
+
+            <div class="step-number">02</div>
+
+            <h3>Fill Resume Details</h3>
+
+            <p>
+                Add your education, skills, experience and projects.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="step-number">03</div>
+
+            <h3>Download PDF</h3>
+
+            <p>
+                Choose a template and download your professional resume.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- FEATURES START -->
-<!-- ========================= -->
+<!-- =========================================
+                AI SECTION
+========================================== -->
 
-  <!-- ========================= -->
-<!-- FEATURES SECTION -->
-<!-- ========================= -->
+<section class="ai-section">
 
-<section id="features" class="features">
+    <div class="ai-left">
 
-<div class="section-title">
+        <span class="badge">
 
-<span>Why Choose Us</span>
+            🤖 AI Assistant
 
-<h2 data-i18n="features.title">
+        </span>
 
-Why Choose Our AI Resume Builder?
+        <h2>
 
-</h2>
+            Let AI Write Your Resume
 
-<p data-i18n="features.lead">
+        </h2>
 
-Create a professional ATS-friendly resume with powerful AI assistance.
+        <p>
 
-</p>
+            AI helps you create professional Summary,
+            Skills, Projects,
+            Experience and Career Objective.
 
-</div>
+        </p>
 
-<div class="feature-grid">
+        <ul>
 
-<div class="card">
+            <li>✔ AI Summary Generator</li>
 
-<div class="icon">🤖</div>
+            <li>✔ AI Skills Suggestion</li>
 
-<h3>AI Resume Generator</h3>
+            <li>✔ AI Experience Writer</li>
 
-<p>
+            <li>✔ AI Project Generator</li>
 
-Generate professional resume content instantly using Artificial Intelligence.
+            <li>✔ AI Resume Improvement</li>
 
-</p>
+        </ul>
 
-</div>
+        <button class="primary-btn">
 
-<div class="card">
+            Try AI Resume
 
-<div class="icon">🎨</div>
+        </button>
 
-<h3>Modern Templates</h3>
+    </div>
 
-<p>
+    <div class="ai-right">
 
-Choose from Premium ATS Friendly Resume Templates.
+        <div class="ai-box">
 
-</p>
+            <h3>
 
-</div>
+                AI Suggestion
 
-<div class="card">
+            </h3>
 
-<div class="icon">⚡</div>
+            <p>
 
-<h3>Fast Builder</h3>
+                Experienced Web Developer with strong
+                knowledge of HTML, CSS, JavaScript,
+                Firebase and Responsive Design...
 
-<p>
+            </p>
 
-Create your complete resume within minutes.
+        </div>
 
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">📄</div>
-
-<h3>PDF Download</h3>
-
-<p>
-
-Download High Quality PDF with one click.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">🌍</div>
-
-<h3>Multi Language</h3>
-
-<p>
-
-Supports English, Bengali & Hindi.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">🛡️</div>
-
-<h3>Secure Data</h3>
-
-<p>
-
-Your information remains safe and protected.
-
-</p>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- TEMPLATE SECTION -->
-<!-- ========================= -->
+<!-- =========================================
+            ATS SCORE
+========================================== -->
 
-<section id="templates" class="templates">
+<section class="ats-section">
 
-<div class="section-title">
+    <div class="ats-card">
 
-<span>Resume Templates</span>
+        <h2>
 
-<h2>
+            ATS Resume Score
 
-Choose Your Favorite Resume Template
+        </h2>
 
-</h2>
+        <div class="score-circle">
 
-<p>
+            98%
 
-2 Free Templates + 8 Premium Templates
+        </div>
 
-</p>
+        <p>
 
-</div>
+            Our resume templates are optimized
+            to pass Applicant Tracking Systems.
 
-<div
-class="template-grid"
-id="template-grid">
+        </p>
 
-<!-- JS will Load Templates -->
-
-</div>
+    </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- ABOUT SECTION -->
-<!-- ========================= -->
+<!-- =========================================
+            STATISTICS
+========================================== -->
 
-<section id="about" class="about">
+<section class="statistics">
 
-<div class="section-title">
+    <div class="stat-card">
 
-<span>About Project</span>
+        <h2 data-count="15000">
 
-<h2>
+            0
 
-Our Project Idea & Analysis
+        </h2>
 
-</h2>
+        <p>
 
-<p>
+            Happy Users
 
-This project is designed for students, freshers and professionals who want professional resumes quickly using AI.
+        </p>
 
-</p>
+    </div>
 
-</div>
+    <div class="stat-card">
 
-<div class="team">
+        <h2 data-count="45000">
 
-<div class="dev-card">
+            0
 
-<div class="dev-bg dev-bg-1"></div>
+        </h2>
 
-<img
-src="assets/apurba.jpg"
-alt="Apurba">
+        <p>
 
-<h3>
+            Resume Created
 
-Apurba Sikdar
+        </p>
 
-</h3>
+    </div>
 
-<p>
+    <div class="stat-card">
 
-Lead Developer
+        <h2 data-count="12000">
 
-</p>
+            0
 
-<p>
+        </h2>
 
-Frontend & Backend Developer
+        <p>
 
-</p>
+            PDF Downloaded
 
-<a href="mailto:apurbasikdar699@gmail.com">
+        </p>
 
-apurbasikdar699@gmail.com
+    </div>
 
-</a>
+    <div class="stat-card">
 
-</div>
+        <h2>
 
-<div class="dev-card">
+            4.9★
 
-<div class="dev-bg dev-bg-2"></div>
+        </h2>
 
-<img
-src="assets/rythm.jpg"
-alt="Rhythm">
+        <p>
 
-<h3>
+            User Rating
 
-Rhythm Bar
+        </p>
 
-</h3>
-
-<p>
-
-Project Concept
-
-</p>
-
-<p>
-
-Research & Analysis
-
-</p>
-
-<a href="mailto:rythm2019@gmail.com">
-
-rythm2019@gmail.com
-
-</a>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- USER COUNTER -->
-<!-- ========================= -->
+<!-- =========================================
+        NEXT PART STARTS
+========================================== -->
 
-<section class="signup-count">
+<section id="templates">
 
-<h2>
+  <!-- =========================================
+            RESUME TEMPLATES
+========================================== -->
 
-🎉 Community
+<section class="templates" id="templates">
 
-</h2>
+    <div class="section-title">
 
-<p>
+        <span>Resume Templates</span>
 
-<span id="signup-count">
+        <h2>Choose Your Resume Template</h2>
 
-0
+        <p>
+            Start with free templates or unlock all premium designs.
+        </p>
 
-</span>
+    </div>
 
-+
+    <div class="template-grid">
 
-Users Joined
+        <!-- FREE TEMPLATE 1 -->
 
-</p>
+        <div class="template-card free">
+
+            <div class="template-badge free-badge">
+                FREE
+            </div>
+
+            <img src="assets/template1.jpg" alt="Modern ATS">
+
+            <div class="template-content">
+
+                <h3>Modern ATS</h3>
+
+                <p>
+                    Perfect for Students & Freshers
+                </p>
+
+                <button class="use-template"
+                    data-template="modern">
+
+                    Use Template
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- FREE TEMPLATE 2 -->
+
+        <div class="template-card free">
+
+            <div class="template-badge free-badge">
+                FREE
+            </div>
+
+            <img src="assets/template2.jpg" alt="Simple Professional">
+
+            <div class="template-content">
+
+                <h3>Simple Professional</h3>
+
+                <p>
+                    Clean & Professional Layout
+                </p>
+
+                <button class="use-template"
+                    data-template="simple">
+
+                    Use Template
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PREMIUM TEMPLATES -->
+
+        <div class="template-card premium locked">
+
+            <div class="premium-overlay">
+
+                <i class="fas fa-lock"></i>
+
+                <h3>Premium</h3>
+
+                <button class="unlock-btn">
+
+                    Unlock ₹10
+
+                </button>
+
+            </div>
+
+            <img src="assets/template3.jpg" alt="Corporate Elite">
+
+            <div class="template-content">
+
+                <h3>Corporate Elite</h3>
+
+            </div>
+
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template4.jpg" alt="">
+            <div class="template-content"><h3>Executive Blue</h3></div>
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template5.jpg" alt="">
+            <div class="template-content"><h3>Minimal Black</h3></div>
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template6.jpg" alt="">
+            <div class="template-content"><h3>Creative CV</h3></div>
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template7.jpg" alt="">
+            <div class="template-content"><h3>Royal Resume</h3></div>
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template8.jpg" alt="">
+            <div class="template-content"><h3>Luxury CV</h3></div>
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template9.jpg" alt="">
+            <div class="template-content"><h3>International</h3></div>
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template10.jpg" alt="">
+            <div class="template-content"><h3>Designer Pro</h3></div>
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template11.jpg" alt="">
+            <div class="template-content"><h3>Executive Gold</h3></div>
+        </div>
+
+        <div class="template-card premium locked">
+            <div class="premium-overlay">
+                <i class="fas fa-lock"></i>
+                <button class="unlock-btn">Unlock ₹10</button>
+            </div>
+            <img src="assets/template12.jpg" alt="">
+            <div class="template-content"><h3>Tech Resume</h3></div>
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ========================= -->
+<!-- =========================================
+            PREMIUM POPUP
+========================================== -->
+
+<div id="premiumModal" class="modal hidden">
+
+    <div class="premium-box">
+
+        <button class="close-modal">&times;</button>
+
+        <h2>👑 Premium Templates</h2>
+
+        <p>
+
+            Unlock all 10 premium templates with a
+            one-time payment of <strong>₹10</strong>.
+
+        </p>
+
+        <div class="premium-features">
+
+            <p>✔ 10 Premium Templates</p>
+            <p>✔ Unlimited Resume</p>
+            <p>✔ PDF Download</p>
+            <p>✔ No Watermark</p>
+            <p>✔ Lifetime Access</p>
+
+        </div>
+
+        <div class="payment-box">
+
+            <h3>Scan & Pay</h3>
+
+            <!-- তোমার QR Code এখানে বসাবে -->
+
+            <img id="paymentQR"
+                 src="assets/payment-qr.jpg"
+                 alt="QR Payment">
+
+            <p>
+
+                Pay ₹10 and enter your UTR Number.
+
+            </p>
+
+            <input
+                type="text"
+                id="utrNumber"
+                placeholder="Enter UTR / Transaction ID">
+
+            <button id="submitPayment"
+                    class="primary-btn">
+
+                I Have Paid
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+                    FAQ
+========================================== -->
+
+<section class="faq">
+
+    <div class="section-title">
+
+        <span>FAQ</span>
+
+        <h2>Frequently Asked Questions</h2>
+
+    </div>
+
+    <div class="faq-list">
+
+        <div class="faq-item">
+
+            <h3>Are the first two templates free?</h3>
+
+            <p>
+
+                Yes. You can use them without any payment.
+
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>What do I get after Premium?</h3>
+
+            <p>
+
+                All premium templates, unlimited resumes and PDF export.
+
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>Is Premium Lifetime?</h3>
+
+            <p>
+
+                Yes. It's a one-time ₹10 payment for your account.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+      NEXT PART STARTS
+========================================== -->
+
+<section id="resume-builder">
+
+  <!-- =========================================
+        RESUME BUILDER
+========================================= -->
+
+<section class="resume-builder" id="resume-builder">
+
+    <div class="section-title">
+
+        <span>Create Resume</span>
+
+        <h2>Build Your Professional Resume</h2>
+
+        <p>
+            Fill in your details and create an ATS-friendly resume in minutes.
+        </p>
+
+    </div>
+
+    <form id="resumeForm">
+
+        <!-- Progress -->
+
+        <div class="builder-progress">
+
+            <div class="progress-step active">1</div>
+            <div class="progress-step">2</div>
+            <div class="progress-step">3</div>
+            <div class="progress-step">4</div>
+
+        </div>
+
+        <!-- =======================
+            PERSONAL DETAILS
+        ======================== -->
+
+        <div class="form-section">
+
+            <h3>Personal Information</h3>
+
+            <div class="input-grid">
+
+                <input type="text"
+                    id="fullName"
+                    placeholder="Full Name"
+                    required>
+
+                <input type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required>
+
+                <input type="tel"
+                    id="phone"
+                    placeholder="Phone Number">
+
+                <input type="text"
+                    id="location"
+                    placeholder="Location">
+
+                <input type="text"
+                    id="linkedin"
+                    placeholder="LinkedIn Profile">
+
+                <input type="text"
+                    id="github"
+                    placeholder="GitHub / Portfolio">
+
+            </div>
+
+            <textarea
+                id="summary"
+                placeholder="Professional Summary"></textarea>
+
+        </div>
+
+        <!-- =======================
+            EDUCATION
+        ======================== -->
+
+        <div class="form-section">
+
+            <h3>Education</h3>
+
+            <textarea
+                id="education"
+                placeholder="Write your education details..."></textarea>
+
+        </div>
+
+        <!-- =======================
+            SKILLS
+        ======================== -->
+
+        <div class="form-section">
+
+            <h3>Skills</h3>
+
+            <textarea
+                id="skills"
+                placeholder="HTML, CSS, JavaScript, Python..."></textarea>
+
+        </div>
+
+        <!-- =======================
+            EXPERIENCE
+        ======================== -->
+
+        <div class="form-section">
+
+            <h3>Work Experience</h3>
+
+            <textarea
+                id="experience"
+                placeholder="Describe your experience..."></textarea>
+
+        </div>
+
+        <!-- =======================
+            PROJECTS
+        ======================== -->
+
+        <div class="form-section">
+
+            <h3>Projects</h3>
+
+            <textarea
+                id="projects"
+                placeholder="Describe your projects..."></textarea>
+
+        </div>
+
+        <!-- =======================
+            CERTIFICATIONS
+        ======================== -->
+
+        <div class="form-section">
+
+            <h3>Certifications</h3>
+
+            <textarea
+                id="certificates"
+                placeholder="Your certifications..."></textarea>
+
+        </div>
+
+        <!-- =======================
+            LANGUAGES
+        ======================== -->
+
+        <div class="form-section">
+
+            <h3>Languages</h3>
+
+            <input
+                type="text"
+                id="languages"
+                placeholder="English, Bengali, Hindi">
+
+        </div>
+
+        <!-- =======================
+            PHOTO
+        ======================== -->
+
+        <div class="form-section">
+
+            <h3>Profile Photo</h3>
+
+            <input
+                type="file"
+                id="profilePhoto"
+                accept="image/*">
+
+        </div>
+
+        <!-- =======================
+            BUTTONS
+        ======================== -->
+
+        <div class="builder-buttons">
+
+            <button
+                type="button"
+                id="previewResume"
+                class="secondary-btn">
+
+                Live Preview
+
+            </button>
+
+            <button
+                type="submit"
+                class="primary-btn">
+
+                Generate Resume
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+<!-- =========================================
+            LIVE PREVIEW MODAL
+========================================= -->
+
+<div id="previewModal"
+     class="modal hidden">
+
+    <div class="preview-box">
+
+        <button class="close-preview">
+
+            &times;
+
+        </button>
+
+        <div id="resumePreview">
+
+            <!-- Dynamic Resume Preview -->
+
+        </div>
+
+        <button
+            id="downloadPDF"
+            class="primary-btn">
+
+            Download PDF
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+        NEXT PART STARTS
+========================================= -->
+
+<section id="account">
+
+  <!-- =========================================
+            ACCOUNT SECTION
+========================================= -->
+
+<section class="account-section" id="account">
+
+    <div class="section-title">
+        <span>Account</span>
+        <h2>Manage Your Resume Account</h2>
+        <p>Login or create your account to save resumes and unlock premium features.</p>
+    </div>
+
+    <div class="account-card">
+
+        <div class="dashboard-box">
+
+            <h3>My Dashboard</h3>
+
+            <div class="status-card">
+
+                <h4>Premium Status</h4>
+
+                <span id="premiumStatus" class="status free">
+
+                    FREE USER
+
+                </span>
+
+            </div>
+
+            <div class="resume-list">
+
+                <h4>My Resumes</h4>
+
+                <ul id="resumeHistory">
+
+                    <li>No Resume Created Yet</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LOGIN MODAL -->
+
+<div class="modal hidden" id="loginModal">
+
+    <div class="modal-box">
+
+        <button class="close-modal">&times;</button>
+
+        <h2>Login</h2>
+
+        <form id="loginForm">
+
+            <input type="email" placeholder="Email">
+
+            <input type="password" placeholder="Password">
+
+            <button class="primary-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <a href="#" id="forgotPassword">
+
+            Forgot Password?
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- SIGNUP MODAL -->
+
+<div class="modal hidden" id="signupModal">
+
+    <div class="modal-box">
+
+        <button class="close-modal">&times;</button>
+
+        <h2>Create Account</h2>
+
+        <form id="signupForm">
+
+            <input type="text" placeholder="Full Name">
+
+            <input type="email" placeholder="Email">
+
+            <input type="password" placeholder="Password">
+
+            <input type="password" placeholder="Confirm Password">
+
+            <button class="primary-btn">
+
+                Create Account
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- AI CHAT -->
+
+<div class="chat-widget">
+
+    <button id="chatButton">
+
+        🤖
+
+    </button>
+
+    <div id="chatBox" class="hidden">
+
+        <div class="chat-header">
+
+            AI Resume Assistant
+
+        </div>
+
+        <div id="chatMessages">
+
+        </div>
+
+        <div class="chat-input">
+
+            <input
+                id="chatInput"
+                type="text"
+                placeholder="Ask anything...">
+
+            <button id="sendChat">
+
+                Send
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
 <!-- FEEDBACK -->
-<!-- ========================= -->
 
-<section
-class="feedback"
-id="feedback">
+<section class="feedback-section">
 
-<h2>
+    <div class="section-title">
 
-💬 User Feedback
+        <span>Feedback</span>
 
-</h2>
+        <h2>Tell Us What You Think</h2>
 
-<textarea
-id="feedback-text"
-placeholder="Write your feedback...">
+    </div>
 
-</textarea>
+    <form id="feedbackForm">
 
-<div class="feedback-row">
+        <input
+            type="text"
+            placeholder="Your Name">
 
-<input
-id="rating"
-type="number"
-min="1"
-max="5"
-placeholder="⭐ Rating">
+        <textarea
+            placeholder="Write Your Feedback"></textarea>
 
-<button
-id="send-feedback">
+        <button class="primary-btn">
 
-Submit
+            Submit Feedback
 
-</button>
+        </button>
 
-</div>
-
-<div
-id="reviews-list"
-class="reviews">
-
-</div>
+    </form>
 
 </section>
 
-<!-- ========================= -->
-<!-- CHATBOT -->
-<!-- ========================= -->
+<!-- CONTACT -->
 
-<div
-id="chat-widget"
-class="chat-widget">
+<section class="contact-section" id="contact">
 
-<button
-id="chat-toggle"
-class="chat-toggle">
+    <div class="section-title">
 
-💬
+        <span>Contact</span>
 
-</button>
+        <h2>Need Help?</h2>
 
-<div
-id="chat-panel"
-class="chat-panel hidden">
+    </div>
 
-<div class="chat-header">
+    <p>
 
-AI Assistant
+        Email :
+        support@yourresumeai.com
 
-</div>
+    </p>
 
-<div
-id="chat-log"
-class="chat-log">
+</section>
 
-</div>
-
-<div class="chat-input-row">
-
-<input
-id="chat-input"
-placeholder="Ask anything...">
-
-<button
-id="chat-send">
-
-Send
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
 <!-- FOOTER -->
-<!-- ========================= -->
 
-<footer class="site-footer">
+<footer>
 
-<div class="footer-container">
+    <div class="footer-logo">
 
-<div class="footer-col">
+        Your Resume AI
 
-<h3>
+    </div>
 
-Your Resume<span>.ai</span>
+    <div class="footer-links">
 
-</h3>
+        <a href="#">Home</a>
 
-<p>
+        <a href="#">Features</a>
 
-Professional AI Resume Builder for Students & Job Seekers.
+        <a href="#">Templates</a>
 
-</p>
+        <a href="#">Privacy Policy</a>
 
-</div>
+        <a href="#">Terms & Conditions</a>
 
-<div class="footer-col">
+        <a href="#">Refund Policy</a>
 
-<h4>
+        <a href="#">Cookie Policy</a>
 
-Quick Links
+    </div>
 
-</h4>
+    <p>
 
-<ul>
+        © <span id="year"></span>
+        Your Resume AI.
+        All Rights Reserved.
 
-<li><a href="#home">Home</a></li>
-
-<li><a href="#features">Features</a></li>
-
-<li><a href="#templates">Templates</a></li>
-
-<li><a href="#about">About</a></li>
-
-</ul>
-
-</div>
-
-<div class="footer-col">
-
-<h4>
-
-Legal
-
-</h4>
-
-<ul>
-
-<li><a href="privacy.html">Privacy Policy</a></li>
-
-<li><a href="terms.html">Terms & Conditions</a></li>
-
-<li><a href="cookies.html">Cookie Policy</a></li>
-
-<li><a href="disclaimer.html">Disclaimer</a></li>
-
-<li><a href="refund.html">Refund Policy</a></li>
-
-</ul>
-
-</div>
-
-<div class="footer-col">
-
-<h4>
-
-Support
-
-</h4>
-
-<p>📧 support@yourresume.ai</p>
-
-<p>🌐 www.yourresume.ai</p>
-
-<p>📍 Kolkata, India</p>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-<p>
-
-© 2026 Your Resume.ai
-
-All Rights Reserved.
-
-Designed & Developed by
-
-<strong>Apurba Sikdar</strong>
-
-</p>
-
-</div>
+    </p>
 
 </footer>
 
-<!-- ======== PART 3 END ======== -->
-
-  <!-- ========================================= -->
-<!-- BUILD RESUME MODAL -->
-<!-- ========================================= -->
-
-<div id="resume-modal" class="modal hidden" aria-hidden="true">
-
-<div class="modal-content">
-
-<button
-id="modal-close"
-class="close">
-
-✕
-
-</button>
-
-<h2>
-
-Build Your Resume
-
-</h2>
-
-<form
-id="resume-form"
-class="form-grid">
-
-<div class="form-row full">
-
-<label>
-
-Passport Size Photo
-
-</label>
-
-<input
-id="photo"
-type="file"
-accept="image/*">
-
-<div
-id="photo-preview">
-
-</div>
-
-</div>
-
-<div class="form-row">
-
-<label>
-
-Full Name
-
-</label>
-
-<input
-id="fullName"
-type="text"
-required>
-
-</div>
-
-<div class="form-row">
-
-<label>
-
-Email
-
-</label>
-
-<input
-id="email"
-type="email"
-required>
-
-</div>
-
-<div class="form-row">
-
-<label>
-
-Phone
-
-</label>
-
-<input
-id="phone"
-type="tel">
-
-</div>
-
-<div class="form-row full">
-
-<label>
-
-Address
-
-</label>
-
-<input
-id="address"
-type="text">
-
-</div>
-
-<div class="form-row full">
-
-<label>
-
-Education
-
-</label>
-
-<input
-id="education"
-type="text">
-
-</div>
-
-<div class="form-row">
-
-<label>
-
-Languages
-
-</label>
-
-<input
-id="languages"
-type="text">
-
-</div>
-
-<div class="form-row full">
-
-<label>
-
-Profile Summary
-
-</label>
-
-<textarea
-id="profile">
-
-</textarea>
-
-</div>
-
-<div class="form-row">
-
-<label>
-
-Skills
-
-</label>
-
-<textarea
-id="skills">
-
-</textarea>
-
-</div>
-
-<div class="form-row">
-
-<label>
-
-Experience
-
-</label>
-
-<textarea
-id="experience">
-
-</textarea>
-
-</div>
-
-<div class="form-row">
-
-<label>
-
-References
-
-</label>
-
-<textarea
-id="references">
-
-</textarea>
-
-</div>
-
-<div class="form-actions full">
-
-<button
-type="button"
-id="preview-btn"
-class="btn-outline">
-
-Preview
-
-</button>
-
-<button
-type="submit"
-class="btn-primary">
-
-Generate Resume
-
-</button>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-<!-- ========================================= -->
-<!-- LOGIN MODAL -->
-<!-- ========================================= -->
-
-<div id="login-modal" class="modal hidden">
-
-<div class="modal-content">
-
-<button
-id="login-close"
-class="close">
-
-✕
-
-</button>
-
-<h2>
-
-Login
-
-</h2>
-
-<form id="login-form">
-
-<input
-id="login-email"
-type="email"
-placeholder="Email"
-required>
-
-<input
-id="login-password"
-type="password"
-placeholder="Password"
-required>
-
-<button
-class="btn-primary"
-type="submit">
-
-Login
-
-</button>
-
-<p>
-
-<a href="#">
-
-Forgot Password?
-
-</a>
-
-</p>
-
-</form>
-
-</div>
-
-</div>
-
-<!-- ========================================= -->
-<!-- SIGNUP MODAL -->
-<!-- ========================================= -->
-
-<div id="signup-modal" class="modal hidden">
-
-<div class="modal-content">
-
-<button
-id="signup-close"
-class="close">
-
-✕
-
-</button>
-
-<h2>
-
-Create Account
-
-</h2>
-
-<form id="signup-form">
-
-<input
-id="su-name"
-type="text"
-placeholder="Full Name"
-required>
-
-<input
-id="su-email"
-type="email"
-placeholder="Email"
-required>
-
-<input
-id="su-phone"
-type="tel"
-placeholder="Phone Number">
-
-<input
-id="su-pass"
-type="password"
-placeholder="Password"
-required>
-
-<input
-id="su-pass2"
-type="password"
-placeholder="Confirm Password"
-required>
-
-<button
-class="btn-primary"
-type="submit">
-
-Create Account
-
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-<!-- ========================================= -->
-<!-- SCRIPT -->
-<!-- ========================================= -->
-
-<script src="js/main.js"></script>
+<script src="main.js"></script>
 
 </body>
 
