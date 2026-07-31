@@ -1,13 +1,13 @@
-/*=========================================
-        YOUR RESUME.AI
-        MAIN.JS PART-1
-=========================================*/
+/* ==========================================
+   YOUR RESUME AI
+   main.js - Part 1
+========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /*==========================
-        LOADER
-    ==========================*/
+    /* ==========================
+       LOADER
+    ========================== */
 
     const loader = document.getElementById("loader");
 
@@ -15,103 +15,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            if(loader){
-
+            if (loader) {
                 loader.style.opacity = "0";
-
                 loader.style.visibility = "hidden";
-
             }
 
-        },800);
+        }, 800);
 
     });
 
-    /*==========================
-        HAMBURGER MENU
-    ==========================*/
+    /* ==========================
+       STICKY NAVBAR
+    ========================== */
 
-    const menuToggle = document.getElementById("menu-toggle");
+    const header = document.getElementById("header");
 
-    const menu = document.getElementById("menu");
+    window.addEventListener("scroll", () => {
 
-    if(menuToggle && menu){
+        if (!header) return;
 
-        menuToggle.addEventListener("click",()=>{
+        if (window.scrollY > 60) {
 
-            menu.classList.toggle("active");
+            header.classList.add("scrolled");
+
+        } else {
+
+            header.classList.remove("scrolled");
+
+        }
+
+    });
+
+    /* ==========================
+       MOBILE MENU
+    ========================== */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
+
+    if (menuBtn && navMenu) {
+
+        menuBtn.addEventListener("click", () => {
+
+            navMenu.classList.toggle("active");
 
         });
 
-    }
+        document.querySelectorAll("#navMenu a").forEach(link => {
 
-    /*==========================
-        CLOSE MENU AFTER CLICK
-    ==========================*/
+            link.addEventListener("click", () => {
 
-    document.querySelectorAll(".menu a").forEach(link=>{
-
-        link.addEventListener("click",()=>{
-
-            menu.classList.remove("active");
-
-        });
-
-    });
-
-    /*==========================
-        STICKY NAVBAR
-    ==========================*/
-
-    const navbar=document.getElementById("main-header");
-
-    window.addEventListener("scroll",()=>{
-
-        if(window.scrollY>50){
-
-            navbar.classList.add("scrolled");
-
-        }
-
-        else{
-
-            navbar.classList.remove("scrolled");
-
-        }
-
-    });
-
-    /*==========================
-        BACK TO TOP
-    ==========================*/
-
-    const back=document.getElementById("backToTop");
-
-    window.addEventListener("scroll",()=>{
-
-        if(window.scrollY>400){
-
-            back.style.display="block";
-
-        }
-
-        else{
-
-            back.style.display="none";
-
-        }
-
-    });
-
-    if(back){
-
-        back.addEventListener("click",()=>{
-
-            window.scrollTo({
-
-                top:0,
-
-                behavior:"smooth"
+                navMenu.classList.remove("active");
 
             });
 
@@ -119,529 +73,339 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    /*==========================
-        SCROLL PROGRESS
-    ==========================*/
+    /* ==========================
+       SCROLL PROGRESS
+    ========================== */
 
-    const progress=document.getElementById("progress-bar");
+    const progress = document.getElementById("progress-bar");
 
-    window.addEventListener("scroll",()=>{
+    window.addEventListener("scroll", () => {
 
-        let total=document.documentElement.scrollHeight-window.innerHeight;
+        if (!progress) return;
 
-        let progressValue=(window.scrollY/total)*100;
+        const scrollTop = window.scrollY;
 
-        progress.style.width=progressValue+"%";
+        const height =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+        const percent = (scrollTop / height) * 100;
+
+        progress.style.width = percent + "%";
 
     });
 
-    /*==========================
-        HERO BUTTON
-    ==========================*/
+    /* ==========================
+       BACK TO TOP
+    ========================== */
 
-    const buildBtn=document.getElementById("build-btn");
+    const backToTop = document.getElementById("backToTop");
 
-    const resumeModal=document.getElementById("resume-modal");
+    window.addEventListener("scroll", () => {
 
-    if(buildBtn){
+        if (!backToTop) return;
 
-        buildBtn.addEventListener("click",()=>{
+        if (window.scrollY > 500) {
 
-            resumeModal.classList.remove("hidden");
+            backToTop.style.display = "flex";
 
-        });
+        } else {
 
-    }
-
-    /*==========================
-        CLOSE MODAL
-    ==========================*/
-
-    const modalClose=document.getElementById("modal-close");
-
-    if(modalClose){
-
-        modalClose.addEventListener("click",()=>{
-
-            resumeModal.classList.add("hidden");
-
-        });
-
-    }
-
-    window.addEventListener("click",(e)=>{
-
-        if(e.target===resumeModal){
-
-            resumeModal.classList.add("hidden");
+            backToTop.style.display = "none";
 
         }
 
     });
 
-});
+    if (backToTop) {
 
-/*=========================================
-        YOUR RESUME.AI
-        MAIN.JS PART-2
-=========================================*/
+        backToTop.addEventListener("click", () => {
 
-document.addEventListener("DOMContentLoaded", () => {
+            window.scrollTo({
 
-    /*==========================
-        LOGIN MODAL
-    ==========================*/
+                top: 0,
 
-    const loginLink = document.getElementById("login-link");
-    const loginModal = document.getElementById("login-modal");
-    const loginClose = document.getElementById("login-close");
+                behavior: "smooth"
 
-    if(loginLink && loginModal){
+            });
 
-        loginLink.addEventListener("click",(e)=>{
+        });
+
+    }
+
+    /* ==========================
+       SMOOTH SCROLL
+    ========================== */
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener("click", function (e) {
+
+            const target = document.querySelector(
+                this.getAttribute("href")
+            );
+
+            if (!target) return;
 
             e.preventDefault();
 
-            loginModal.classList.remove("hidden");
+            target.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
 
         });
 
-    }
+    });
 
-    if(loginClose){
+    /* ==========================
+       SCROLL REVEAL
+    ========================== */
 
-        loginClose.addEventListener("click",()=>{
+    const revealItems = document.querySelectorAll(
 
-            loginModal.classList.add("hidden");
+        ".feature-card, .template-card, .step, .stat-card, .section-title"
 
-        });
+    );
 
-    }
+    const reveal = () => {
 
-    /*==========================
-        SIGNUP MODAL
-    ==========================*/
+        revealItems.forEach(item => {
 
-    const signupBtn = document.getElementById("signup-btn");
-    const signupModal = document.getElementById("signup-modal");
-    const signupClose = document.getElementById("signup-close");
+            const top = item.getBoundingClientRect().top;
 
-    if(signupBtn){
+            if (top < window.innerHeight - 100) {
 
-        signupBtn.addEventListener("click",()=>{
+                item.classList.add("show");
 
-            signupModal.classList.remove("hidden");
+            }
 
         });
 
-    }
+    };
 
-    if(signupClose){
+    window.addEventListener("scroll", reveal);
 
-        signupClose.addEventListener("click",()=>{
+    reveal();
 
-            signupModal.classList.add("hidden");
+    /* ==========================
+       COUNTER
+    ========================== */
+
+    const counters = document.querySelectorAll("[data-count]");
+
+    counters.forEach(counter => {
+
+        let start = 0;
+
+        const end = Number(counter.dataset.count);
+
+        const speed = Math.max(10, Math.floor(2000 / end));
+
+        const update = () => {
+
+            start++;
+
+            counter.innerText = start;
+
+            if (start < end) {
+
+                setTimeout(update, speed);
+
+            }
+
+        };
+
+        update();
+
+    });
+
+});
+
+/* ==========================================
+   main.js - Part 2
+========================================== */
+
+/* ==========================
+   MODALS
+========================== */
+
+const loginModal = document.getElementById("loginModal");
+const signupModal = document.getElementById("signupModal");
+const premiumModal = document.getElementById("premiumModal");
+
+const loginBtn = document.getElementById("loginBtn");
+const signupBtn = document.getElementById("signupBtn");
+
+if(loginBtn){
+
+    loginBtn.addEventListener("click",()=>{
+
+        loginModal.classList.remove("hidden");
+
+    });
+
+}
+
+if(signupBtn){
+
+    signupBtn.addEventListener("click",()=>{
+
+        signupModal.classList.remove("hidden");
+
+    });
+
+}
+
+/* Close Modal */
+
+document.querySelectorAll(".close-modal").forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+        document.querySelectorAll(".modal").forEach(modal=>{
+
+            modal.classList.add("hidden");
 
         });
 
-    }
+    });
 
-    /*==========================
-        CLOSE ALL MODALS
-    ==========================*/
+});
 
-    window.addEventListener("click",(e)=>{
+/* Click Outside */
 
-        if(e.target===loginModal){
+window.addEventListener("click",(e)=>{
 
-            loginModal.classList.add("hidden");
+    document.querySelectorAll(".modal").forEach(modal=>{
 
-        }
+        if(e.target===modal){
 
-        if(e.target===signupModal){
-
-            signupModal.classList.add("hidden");
+            modal.classList.add("hidden");
 
         }
 
     });
 
-    /*==========================
-        PHOTO PREVIEW
-    ==========================*/
+});
 
-    const photo=document.getElementById("photo");
+/* ==========================
+   PREMIUM POPUP
+========================== */
 
-    const preview=document.getElementById("photo-preview");
+document.querySelectorAll(".unlock-btn").forEach(btn=>{
 
-    if(photo){
+    btn.addEventListener("click",()=>{
 
-        photo.addEventListener("change",()=>{
+        if(premiumModal){
 
-            const file=photo.files[0];
-
-            if(file){
-
-                const reader=new FileReader();
-
-                reader.onload=function(e){
-
-                    preview.innerHTML=
-
-                    `<img src="${e.target.result}" alt="Preview">`;
-
-                }
-
-                reader.readAsDataURL(file);
-
-            }
-
-        });
-
-    }
-
-    /*==========================
-        SIGNUP COUNTER
-    ==========================*/
-
-    let count=localStorage.getItem("signupCount");
-
-    if(!count){
-
-        count=0;
-
-    }
-
-    const counter=document.getElementById("signup-count");
-
-    if(counter){
-
-        counter.innerText=count;
-
-    }
-
-    const signupForm=document.getElementById("signup-form");
-
-    if(signupForm){
-
-        signupForm.addEventListener("submit",(e)=>{
-
-            e.preventDefault();
-
-            count++;
-
-            localStorage.setItem("signupCount",count);
-
-            counter.innerText=count;
-
-            alert("Account Created Successfully!");
-
-            signupModal.classList.add("hidden");
-
-            signupForm.reset();
-
-        });
-
-    }
-
-    /*==========================
-        FEEDBACK
-    ==========================*/
-
-    const sendBtn=document.getElementById("send-feedback");
-
-    if(sendBtn){
-
-        sendBtn.addEventListener("click",()=>{
-
-            const text=document.getElementById("feedback-text").value;
-
-            const rating=document.getElementById("rating").value;
-
-            const reviews=document.getElementById("reviews-list");
-
-            if(text===""){
-
-                alert("Write Feedback");
-
-                return;
-
-            }
-
-            const card=document.createElement("div");
-
-            card.className="review-card";
-
-            card.innerHTML=`
-
-            <h4>⭐⭐⭐⭐⭐ ${rating}</h4>
-
-            <p>${text}</p>
-
-            `;
-
-            reviews.prepend(card);
-
-            document.getElementById("feedback-text").value="";
-
-            document.getElementById("rating").value="";
-
-        });
-
-    }
-
-    /*==========================
-        CHATBOT
-    ==========================*/
-
-    const chatToggle=document.getElementById("chat-toggle");
-
-    const chatPanel=document.getElementById("chat-panel");
-
-    const chatInput=document.getElementById("chat-input");
-
-    const chatLog=document.getElementById("chat-log");
-
-    const chatSend=document.getElementById("chat-send");
-
-    if(chatToggle){
-
-        chatToggle.addEventListener("click",()=>{
-
-            chatPanel.classList.toggle("hidden");
-
-        });
-
-    }
-
-    function sendMessage(){
-
-        let msg=chatInput.value.trim();
-
-        if(msg==="") return;
-
-        chatLog.innerHTML+=`
-
-        <div class="user-msg">
-
-        ${msg}
-
-        </div>
-
-        `;
-
-        let reply="Sorry, I didn't understand.";
-
-        if(msg.toLowerCase().includes("resume")){
-
-            reply="Click 'Build My Resume' to create your professional resume.";
+            premiumModal.classList.remove("hidden");
 
         }
 
-        if(msg.toLowerCase().includes("template")){
-
-            reply="Go to Templates section and choose your favorite design.";
-
-        }
-
-        if(msg.toLowerCase().includes("login")){
-
-            reply="Click Login from the navigation bar.";
-
-        }
-
-        chatLog.innerHTML+=`
-
-        <div class="bot-msg">
-
-        🤖 ${reply}
-
-        </div>
-
-        `;
-
-        chatInput.value="";
-
-        chatLog.scrollTop=chatLog.scrollHeight;
-
-    }
-
-    if(chatSend){
-
-        chatSend.addEventListener("click",sendMessage);
-
-    }
-
-    if(chatInput){
-
-        chatInput.addEventListener("keypress",(e)=>{
-
-            if(e.key==="Enter"){
-
-                sendMessage();
-
-            }
-
-        });
-
-    }
+    });
 
 });
 
-/*=========================================
-        YOUR RESUME.AI
-        MAIN.JS PART-3
-=========================================*/
+/* ==========================
+   PHOTO PREVIEW
+========================== */
 
-document.addEventListener("DOMContentLoaded",()=>{
+const photoInput=document.getElementById("profilePhoto");
+const previewPhoto=document.getElementById("previewPhoto");
 
-/*==========================
-LANGUAGE SWITCHER
-==========================*/
+if(photoInput){
 
-const language=document.getElementById("language");
+photoInput.addEventListener("change",(e)=>{
 
-if(language){
+const file=e.target.files[0];
 
-language.addEventListener("change",()=>{
+if(file){
 
-localStorage.setItem("language",language.value);
+const reader=new FileReader();
 
-showToast("Language changed to "+language.value.toUpperCase());
+reader.onload=function(event){
 
-});
+if(previewPhoto){
 
-const savedLanguage=localStorage.getItem("language");
-
-if(savedLanguage){
-
-language.value=savedLanguage;
+previewPhoto.src=event.target.result;
 
 }
 
 }
 
-/*==========================
-THEME MODE
-==========================*/
+reader.readAsDataURL(file);
 
-const themeBtn=document.getElementById("theme-toggle");
+}
 
-if(themeBtn){
+});
 
-themeBtn.addEventListener("click",()=>{
+}
 
-document.body.classList.toggle("light-mode");
+/* ==========================
+   LIVE RESUME PREVIEW
+========================== */
+
+const form=document.getElementById("resumeForm");
+
+if(form){
+
+form.addEventListener("input",()=>{
+
+const name=document.getElementById("fullName")?.value || "";
+
+const email=document.getElementById("email")?.value || "";
+
+const phone=document.getElementById("phone")?.value || "";
+
+const summary=document.getElementById("summary")?.value || "";
+
+const preview=document.getElementById("resumePreview");
+
+if(preview){
+
+preview.innerHTML=`
+
+<h2>${name}</h2>
+
+<p>${email}</p>
+
+<p>${phone}</p>
+
+<hr>
+
+<p>${summary}</p>
+
+`;
+
+}
+
+});
+
+}
+
+/* ==========================
+   LOCAL STORAGE AUTO SAVE
+========================== */
+
+if(form){
+
+form.addEventListener("input",()=>{
+
+const formData={};
+
+form.querySelectorAll("input,textarea,select").forEach(field=>{
+
+formData[field.id]=field.value;
+
+});
 
 localStorage.setItem(
 
-"theme",
+"resumeData",
 
-document.body.classList.contains("light-mode")?"light":"dark"
-
-);
-
-});
-
-}
-
-const savedTheme=localStorage.getItem("theme");
-
-if(savedTheme==="light"){
-
-document.body.classList.add("light-mode");
-
-}
-
-/*==========================
-SCROLL REVEAL
-==========================*/
-
-const revealItems=document.querySelectorAll(
-
-".card,.template-card,.dev-card,.hero-left,.hero-right,.stat-box"
-
-);
-
-const reveal=()=>{
-
-revealItems.forEach(item=>{
-
-const top=item.getBoundingClientRect().top;
-
-if(top<window.innerHeight-120){
-
-item.classList.add("show");
-
-}
-
-});
-
-};
-
-window.addEventListener("scroll",reveal);
-
-reveal();
-
-/*==========================
-COUNTER ANIMATION
-==========================*/
-
-document.querySelectorAll("[data-count]").forEach(counter=>{
-
-let target=parseInt(counter.dataset.count);
-
-let count=0;
-
-let speed=Math.ceil(target/120);
-
-const update=()=>{
-
-count+=speed;
-
-if(count>=target){
-
-counter.innerText=target;
-
-}else{
-
-counter.innerText=count;
-
-requestAnimationFrame(update);
-
-}
-
-}
-
-update();
-
-});
-
-/*==========================
-RESUME PREVIEW
-==========================*/
-
-const previewBtn=document.getElementById("preview-btn");
-
-if(previewBtn){
-
-previewBtn.addEventListener("click",()=>{
-
-const name=document.getElementById("fullName").value||"Your Name";
-
-const email=document.getElementById("email").value||"email@example.com";
-
-const phone=document.getElementById("phone").value||"Phone Number";
-
-alert(
-
-"Resume Preview\n\n"+
-
-"Name : "+name+
-
-"\nEmail : "+email+
-
-"\nPhone : "+phone
+JSON.stringify(formData)
 
 );
 
@@ -649,53 +413,39 @@ alert(
 
 }
 
-/*==========================
-LOGIN
-==========================*/
+window.addEventListener("load",()=>{
 
-const loginForm=document.getElementById("login-form");
+const saved=JSON.parse(
 
-if(loginForm){
+localStorage.getItem("resumeData")
 
-loginForm.addEventListener("submit",(e)=>{
+);
 
-e.preventDefault();
+if(saved){
 
-showToast("Login Successful");
+Object.keys(saved).forEach(key=>{
 
-document.getElementById("login-modal").classList.add("hidden");
+const field=document.getElementById(key);
 
-loginForm.reset();
+if(field){
+
+field.value=saved[key];
+
+}
 
 });
 
 }
 
-/*==========================
-RESUME FORM
-==========================*/
-
-const resumeForm=document.getElementById("resume-form");
-
-if(resumeForm){
-
-resumeForm.addEventListener("submit",(e)=>{
-
-e.preventDefault();
-
-showToast("Resume Generated Successfully!");
-
 });
 
-}
-
-/*==========================
-TOAST
-==========================*/
+/* ==========================
+   TOAST
+========================== */
 
 function showToast(message){
 
-let toast=document.createElement("div");
+const toast=document.createElement("div");
 
 toast.className="toast";
 
@@ -717,41 +467,321 @@ setTimeout(()=>{
 
 toast.remove();
 
-},300);
+},400);
 
-},2500);
+},3000);
 
 }
 
-/*==========================
-SMOOTH NAVIGATION
-==========================*/
+/* Example */
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+if(form){
 
-anchor.addEventListener("click",function(e){
-
-const target=document.querySelector(this.getAttribute("href"));
-
-if(target){
+form.addEventListener("submit",(e)=>{
 
 e.preventDefault();
 
-target.scrollIntoView({
-
-behavior:"smooth"
+showToast("Resume Saved Successfully ✅");
 
 });
 
 }
 
-});
+/* ==========================================
+   main.js - Part 3
+========================================== */
+
+/* ==========================
+   AI CHAT
+========================== */
+
+const chatButton = document.getElementById("chatButton");
+const chatBox = document.getElementById("chatBox");
+const chatInput = document.getElementById("chatInput");
+const sendChat = document.getElementById("sendChat");
+const chatMessages = document.getElementById("chatMessages");
+
+if(chatButton){
+
+chatButton.onclick=()=>{
+
+chatBox.classList.toggle("hidden");
+
+}
+
+}
+
+function addMessage(sender,text){
+
+if(!chatMessages) return;
+
+const div=document.createElement("div");
+
+div.className="chat-message "+sender;
+
+div.innerHTML=`<strong>${sender==="user"?"You":"AI"}:</strong> ${text}`;
+
+chatMessages.appendChild(div);
+
+chatMessages.scrollTop=chatMessages.scrollHeight;
+
+}
+
+function aiReply(message){
+
+message=message.toLowerCase();
+
+if(message.includes("resume"))
+
+return "I can help you build a professional ATS-friendly resume.";
+
+if(message.includes("template"))
+
+return "You can unlock all Premium templates for only ₹10.";
+
+if(message.includes("premium"))
+
+return "Premium gives unlimited resumes, PDF export, and all templates.";
+
+if(message.includes("hello") || message.includes("hi"))
+
+return "Hello 👋 How can I help you today?";
+
+return "I'm your Resume AI Assistant. Ask me anything about resumes.";
+
+}
+
+if(sendChat){
+
+sendChat.onclick=()=>{
+
+const text=chatInput.value.trim();
+
+if(!text) return;
+
+addMessage("user",text);
+
+chatInput.value="";
+
+setTimeout(()=>{
+
+addMessage("ai",aiReply(text));
+
+},600);
+
+}
+
+}
+
+if(chatInput){
+
+chatInput.addEventListener("keypress",e=>{
+
+if(e.key==="Enter"){
+
+e.preventDefault();
+
+sendChat.click();
+
+}
 
 });
 
-/*==========================
-COPYRIGHT YEAR
-==========================*/
+}
+
+/* ==========================
+   PDF DOWNLOAD
+========================== */
+
+const downloadBtn=document.getElementById("downloadResume");
+
+if(downloadBtn){
+
+downloadBtn.onclick=()=>{
+
+window.print();
+
+};
+
+}
+
+/* ==========================
+   PREMIUM VERIFY
+========================== */
+
+const verifyBtn=document.getElementById("verifyPayment");
+
+if(verifyBtn){
+
+verifyBtn.onclick=()=>{
+
+const utr=document.getElementById("utrNumber").value.trim();
+
+if(utr.length<8){
+
+showToast("Please enter a valid UTR Number");
+
+return;
+
+}
+
+localStorage.setItem("premiumUser","true");
+
+showToast("Payment Submitted Successfully");
+
+document.getElementById("premiumStatus").innerText="PREMIUM USER";
+
+document.getElementById("premiumStatus").classList.remove("free");
+
+document.getElementById("premiumStatus").classList.add("premium");
+
+premiumModal.classList.add("hidden");
+
+};
+
+}
+
+/* ==========================
+   LOAD PREMIUM STATUS
+========================== */
+
+if(localStorage.getItem("premiumUser")==="true"){
+
+const status=document.getElementById("premiumStatus");
+
+if(status){
+
+status.innerText="PREMIUM USER";
+
+status.classList.remove("free");
+
+status.classList.add("premium");
+
+}
+
+}
+
+/* ==========================
+   RESUME HISTORY
+========================== */
+
+const history=document.getElementById("resumeHistory");
+
+if(form){
+
+form.addEventListener("submit",()=>{
+
+const li=document.createElement("li");
+
+const name=document.getElementById("fullName").value || "Untitled Resume";
+
+li.innerText=name;
+
+history.appendChild(li);
+
+});
+
+}
+
+/* ==========================
+   RESET BUILDER
+========================== */
+
+const resetBtn=document.getElementById("resetResume");
+
+if(resetBtn){
+
+resetBtn.onclick=()=>{
+
+if(confirm("Reset Resume Builder?")){
+
+form.reset();
+
+localStorage.removeItem("resumeData");
+
+showToast("Builder Reset");
+
+}
+
+};
+
+}
+
+/* ==========================
+   SHARE
+========================== */
+
+const shareBtn=document.getElementById("shareResume");
+
+if(shareBtn){
+
+shareBtn.onclick=async()=>{
+
+if(navigator.share){
+
+await navigator.share({
+
+title:"My Resume",
+
+text:"Check my Resume",
+
+url:location.href
+
+});
+
+}else{
+
+navigator.clipboard.writeText(location.href);
+
+showToast("Link Copied");
+
+}
+
+};
+
+}
+
+/* ==========================
+   DELETE HISTORY
+========================== */
+
+const clearBtn=document.getElementById("clearHistory");
+
+if(clearBtn){
+
+clearBtn.onclick=()=>{
+
+history.innerHTML="";
+
+showToast("History Cleared");
+
+};
+
+}
+
+/* ==========================
+   LANGUAGE
+========================== */
+
+const lang=document.getElementById("languageSelect");
+
+if(lang){
+
+lang.onchange=()=>{
+
+localStorage.setItem("language",lang.value);
+
+showToast("Language Changed");
+
+};
+
+lang.value=localStorage.getItem("language")||"en";
+
+}
+
+/* ==========================
+   YEAR
+========================== */
 
 const year=document.getElementById("year");
 
@@ -761,4 +791,3 @@ year.innerText=new Date().getFullYear();
 
 }
 
-});
