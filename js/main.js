@@ -19269,3 +19269,36 @@ console.log(
     setTimeout(hideLoaderNow, 5000);
 
 })();
+
+
+
+
+
+
+
+/* =========================================================
+   REMOVE LOADER
+========================================================= */
+
+(function removeAppLoader() {
+    const hideLoader = () => {
+        const loader = document.getElementById("appLoader");
+
+        if (!loader) return;
+
+        loader.style.display = "none";
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+        loader.style.pointerEvents = "none";
+    };
+
+    // Immediately try
+    hideLoader();
+
+    // After page loads
+    window.addEventListener("load", hideLoader);
+
+    // Safety fallback
+    setTimeout(hideLoader, 1000);
+    setTimeout(hideLoader, 3000);
+});
