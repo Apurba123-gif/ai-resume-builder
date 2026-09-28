@@ -16306,6 +16306,248 @@ textarea:focus-visible {
 }
 
 
+
+
+
+/* =========================================================
+   MAINTENANCE PAGE
+========================================================= */
+
+.maintenance-page {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(79, 70, 229, 0.12),
+            transparent 35%),
+        radial-gradient(circle at bottom right,
+            rgba(14, 165, 233, 0.12),
+            transparent 35%),
+        #f8faff;
+
+    overflow-y: auto;
+}
+
+.maintenance-card {
+    width: 100%;
+    max-width: 620px;
+
+    text-align: center;
+
+    padding: 55px 35px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid rgba(79, 70, 229, 0.10);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, 0.12);
+
+    animation: maintenanceCardIn 0.7s ease;
+}
+
+.maintenance-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+
+    padding: 12px 18px;
+    margin-bottom: 30px;
+
+    border-radius: 14px;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #06b6d4
+    );
+
+    font-size: 18px;
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+.maintenance-logo strong {
+    color: #111827;
+}
+
+.maintenance-icon {
+    width: 82px;
+    height: 82px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef2ff;
+
+    font-size: 38px;
+
+    animation: maintenanceFloat 2.5s ease-in-out infinite;
+}
+
+.maintenance-card h1 {
+    margin: 0 0 15px;
+
+    color: #111827;
+
+    font-size: clamp(28px, 5vw, 42px);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+}
+
+.maintenance-bengali {
+    margin: 0 0 15px;
+
+    color: #4f46e5;
+
+    font-size: clamp(19px, 4vw, 25px);
+
+    font-weight: 700;
+}
+
+.maintenance-text {
+    max-width: 470px;
+
+    margin: 0 auto;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.maintenance-loader {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    margin: 30px 0 22px;
+}
+
+.maintenance-loader span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #4f46e5;
+
+    animation: maintenanceDots 1.4s infinite ease-in-out;
+}
+
+.maintenance-loader span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.maintenance-loader span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.maintenance-small {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+/* Animations */
+
+@keyframes maintenanceCardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes maintenanceFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+@keyframes maintenanceDots {
+
+    0%,
+    80%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    40% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .maintenance-page {
+        padding: 15px;
+    }
+
+    .maintenance-card {
+        padding: 42px 22px;
+        border-radius: 22px;
+    }
+
+    .maintenance-logo {
+        margin-bottom: 25px;
+    }
+
+    .maintenance-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+    }
+
+    .maintenance-text {
+        font-size: 14px;
+    }
+
+}
 /* =========================================================
    FINAL CSS PART
    YOUR RESUME.AI
