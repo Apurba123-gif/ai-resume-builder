@@ -19235,6 +19235,37 @@ console.log(
 );
 
 
+
+
 /* ============================================================
    END OF MAIN.JS PART 8
    ============================================================ */
+/* =========================================================
+   FORCE HIDE LOADER - SAFETY FALLBACK
+========================================================= */
+
+(function forceHideLoader() {
+
+    function hideLoaderNow() {
+        const loader = document.getElementById("appLoader");
+
+        if (!loader) return;
+
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+        loader.style.pointerEvents = "none";
+
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 400);
+    }
+
+    // Normal load
+    window.addEventListener("load", () => {
+        setTimeout(hideLoaderNow, 800);
+    });
+
+    // Safety fallback
+    setTimeout(hideLoaderNow, 5000);
+
+})();
